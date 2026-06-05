@@ -821,7 +821,6 @@ h2.h2-light em { color: var(--accent-yellow); }
     color: var(--dark-gray);
 }
 
-/* Ensure the copy-item is clickable and styles the icon */
 .copy-item { 
     cursor: pointer; 
     transition: var(--transition); 
@@ -832,82 +831,90 @@ h2.h2-light em { color: var(--accent-yellow); }
 }
 
 .copy-item:hover { 
-    background: rgba(107, 33, 168, 0.05); /* Very subtle purple hover effect */
+    background: rgba(107, 33, 168, 0.05);
 }
 
-.paybill-container { padding: 4rem 8%; background: var(--light-gray); }
-
-.paybill-card {
-    background: var(--white);
-    padding: 3rem;
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-md);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 4rem;
-    max-width: 900px;
-    margin: 0 auto;
-    border-top: 6px solid var(--primary-purple, #6b21a8);
+.gallery-wrapper {
+  width: 100%;
+  overflow: hidden;
+  padding: 3rem 0;
 }
 
-.paybill-details {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    margin-top: 2rem;
+.gallery-track {
+  display: flex;
+  gap: 2rem;
+  animation: scrollLeft 40s linear infinite;
+  width: max-content; 
 }
 
-.copy-item { 
-    cursor: pointer; 
-    padding: 1rem;
-    border-radius: var(--radius-md);
-    transition: var(--transition);
-    border: 1px solid transparent;
+@keyframes scrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } 
 }
 
-.copy-item:hover { 
-    background: #fdf5ff; 
-    border-color: rgba(107, 33, 168, 0.2);
-}
-
-.paybill-label {
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: var(--gray);
-    margin-bottom: 0.25rem;
-}
-
-.paybill-value {
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: var(--primary-purple, #6b21a8);
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.paybill-value i {
-    font-size: 1rem;
-    color: var(--gray);
-    opacity: 0.5;
-}
-
-.paybill-message {
-    flex: 0 0 320px;
+.section-header {
     text-align: center;
-    background: var(--light-gray);
-    padding: 2rem;
-    border-radius: var(--radius-md);
+    margin-bottom: 3rem; 
 }
 
-.paybill-message i { font-size: 2rem; color: var(--primary-red); margin-bottom: 1rem; }
-
-@media (max-width: 768px) {
-    .paybill-card { flex-direction: column; text-align: center; }
-    .paybill-message { flex: 0 0 auto; width: 100%; }
+.section-header .section-tag {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: fit-content;
 }
+
+.gallery-card {
+  width: 350px;
+  height: 400px;
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  background: white;
+  flex-shrink: 0;
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Badge positioned at the top right of the card */
+.status-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.status-badge.upcoming { color: var(--accent-yellow); border: 1px solid var(--accent-yellow); }
+.status-badge.concluded { color: var(--dark-gray); border: 1px solid var(--dark-gray); }
+
+.status-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 20;
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.status-badge.upcoming { color: var(--accent-yellow); border: 1px solid var(--accent-yellow); }
+.status-badge.concluded { color: var(--gray); border: 1px solid var(--gray); }
+
 
 .section-contact {
   padding: 6rem 4rem;
