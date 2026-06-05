@@ -821,6 +821,37 @@ h2.h2-light em { color: var(--accent-yellow); }
     color: var(--dark-gray);
 }
 
+@media (max-width: 768px) {
+    .paybill-card { 
+        flex-direction: column; 
+        text-align: center; 
+        padding: 1.5rem; 
+        gap: 1.5rem;
+    }
+    
+    .paybill-details {
+        margin-top: 1rem;
+        width: 100%;
+    }
+
+    .paybill-message {
+        flex: 0 0 auto; 
+        width: 100%;
+        padding: 1rem;
+    }
+
+    /* Force text to stay on one line where possible */
+    .paybill-content h3 {
+        font-size: 1.4rem;
+        word-break: break-word;
+    }
+
+    .paybill-value {
+        font-size: 1.5rem;
+        justify-content: center; /* Keeps the copy icon centered */
+    }
+}
+
 .copy-item { 
     cursor: pointer; 
     transition: var(--transition); 
