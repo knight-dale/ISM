@@ -811,7 +811,6 @@ h2.h2-light em { color: var(--accent-yellow); }
     border-top: 6px solid var(--primary-purple);
 }
 
-/* New message style */
 .paybill-message {
     flex: 0 0 300px;
     text-align: center;
@@ -840,7 +839,6 @@ h2.h2-light em { color: var(--accent-yellow); }
         padding: 1rem;
     }
 
-    /* Force text to stay on one line where possible */
     .paybill-content h3 {
         font-size: 1.4rem;
         word-break: break-word;
@@ -848,7 +846,7 @@ h2.h2-light em { color: var(--accent-yellow); }
 
     .paybill-value {
         font-size: 1.5rem;
-        justify-content: center; /* Keeps the copy icon centered */
+        justify-content: center;
     }
 }
 
