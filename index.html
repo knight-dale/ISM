@@ -292,28 +292,37 @@
     </div>
   </section>
 
-  <div class="paybill-band">
-    <div class="paybill-left">
-      <div class="paybill-text">
+  <section class="paybill-container">
+    <div class="paybill-card">
+        <div class="paybill-content">
         <h3>Support ISM via M-Pesa</h3>
         <p>Lipa Na M-Pesa &middot; Simple &middot; Transparent &middot; Honest</p>
-      </div>
-      <div class="paybill-details">
-        <div class="paybill-item">
-          <div class="paybill-label">Paybill Number</div>
-          <div class="paybill-value">23189</div>
+        
+        <div class="paybill-details">
+            <div class="copy-item" onclick="copyToClipboard('23189')">
+            <div class="paybill-label">Paybill Number</div>
+            <div class="paybill-value">
+                23189 <i class="fas fa-copy"></i>
+            </div>
+            </div>
+            
+            <div class="paybill-group-divider"></div>
+            
+            <div class="copy-item" onclick="copyToClipboard('ISM#')">
+            <div class="paybill-label">Account Name</div>
+            <div class="paybill-value">
+                ISM# <i class="fas fa-copy"></i>
+            </div>
+            </div>
         </div>
-        <div class="paybill-divider"></div>
-        <div class="paybill-item">
-          <div class="paybill-label">Account Name</div>
-          <div class="paybill-value paybill-value-sm">ISM#</div>
         </div>
-      </div>
+
+        <div class="paybill-message">
+        <i class="fas fa-heart"></i>
+        <p>Your support means the world to us. Every contribution helps us restore destinies and transform lives across our communities.</p>
+        </div>
     </div>
-    <div class="paybill-img-wrap">
-      <img src="resources/paybill.jpeg" alt="ISM M-Pesa Paybill" class="paybill-img">
-    </div>
-  </div>
+  </section>
 
   <section id="contact" class="section-contact">
     <div class="contact-grid">
@@ -452,6 +461,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>

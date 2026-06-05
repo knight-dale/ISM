@@ -223,7 +223,7 @@ a  { color: inherit; }
   align-items: center;
   gap: 0 3rem;
   padding: 110px 4rem 4rem;
-  background: linear-gradient(135deg, var(--primary-green) 0%, #2d5a2d 55%, #38761d 100%);
+  background: linear-gradient(135deg, #2e1065 0%, #4c1d95 100%);
   overflow: hidden;
 }
 
@@ -408,7 +408,7 @@ a  { color: inherit; }
 }
 
 .motto-band {
-  background: linear-gradient(135deg, var(--primary-green), #2d5a2d);
+  background: linear-gradient(135deg, #2e1065 0%, #4c1d95 100%);
   padding: 2.25rem 2rem;
   text-align: center;
 }
@@ -745,7 +745,7 @@ h2.h2-light em { color: var(--accent-yellow); }
 
 .section-benefits {
   padding: 6rem 4rem;
-  background: linear-gradient(135deg, var(--primary-green) 0%, #2d5a2d 55%, #38761d 100%);
+  background: linear-gradient(135deg, #2e1065 0%, #4c1d95 100%);
   position: relative;
   overflow: hidden;
 }
@@ -753,9 +753,7 @@ h2.h2-light em { color: var(--accent-yellow); }
   content: '';
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(circle at 15% 80%, rgba(220,38,38,.14) 0%, transparent 48%),
-    radial-gradient(circle at 85% 15%, rgba(34,197,94,.18) 0%, transparent 48%);
+  background: radial-gradient(circle at 15% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 48%);
 }
 .section-benefits > * { position: relative; z-index: 1; }
 
@@ -798,62 +796,117 @@ h2.h2-light em { color: var(--accent-yellow); }
   .section-benefits { padding: 4rem 1.5rem; }
 }
 
-.paybill-band {
-  background: var(--white);
-  padding: 3.5rem 4rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 3rem;
-  flex-wrap: wrap;
-  border-top: 1px solid rgba(0,0,0,.07);
-  border-bottom: 1px solid rgba(0,0,0,.07);
+/* Update the existing paybill-card to handle the new content */
+.paybill-card {
+    background: var(--white);
+    padding: 3rem;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    max-width: 900px;
+    margin: 0 auto;
+    border-top: 6px solid var(--primary-purple);
 }
-.paybill-text h3 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--primary-green);
-  margin-bottom: .25rem;
+
+/* New message style */
+.paybill-message {
+    flex: 0 0 300px;
+    text-align: center;
+    background: var(--light-gray);
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    color: var(--dark-gray);
 }
-.paybill-text p { font-size: .875rem; color: var(--dark-gray); opacity: .75; }
+
+/* Ensure the copy-item is clickable and styles the icon */
+.copy-item { 
+    cursor: pointer; 
+    transition: var(--transition); 
+    padding: 0.5rem;
+    border-radius: var(--radius-sm);
+    display: flex;
+    flex-direction: column;
+}
+
+.copy-item:hover { 
+    background: rgba(107, 33, 168, 0.05); /* Very subtle purple hover effect */
+}
+
+.paybill-container { padding: 4rem 8%; background: var(--light-gray); }
+
+.paybill-card {
+    background: var(--white);
+    padding: 3rem;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+    max-width: 900px;
+    margin: 0 auto;
+    border-top: 6px solid var(--primary-purple, #6b21a8);
+}
+
 .paybill-details {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
 }
+
+.copy-item { 
+    cursor: pointer; 
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    transition: var(--transition);
+    border: 1px solid transparent;
+}
+
+.copy-item:hover { 
+    background: #fdf5ff; 
+    border-color: rgba(107, 33, 168, 0.2);
+}
+
 .paybill-label {
-  font-size: .7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: .1em;
-  color: var(--dark-gray);
-  opacity: .6;
-  margin-bottom: .2rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 0.25rem;
 }
+
 .paybill-value {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 2.2rem;
-  font-weight: 600;
-  color: var(--primary-green);
-  line-height: 1;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--primary-purple, #6b21a8);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
-.paybill-value-sm { font-size: 1.6rem; }
-.paybill-divider {
-  width: 1px; height: 48px;
-  background: rgba(0,0,0,.12);
+
+.paybill-value i {
+    font-size: 1rem;
+    color: var(--gray);
+    opacity: 0.5;
 }
-.paybill-img-wrap { flex-shrink: 0; }
-.paybill-img {
-  width: 140px;
-  height: 140px;
-  object-fit: contain;
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
+
+.paybill-message {
+    flex: 0 0 320px;
+    text-align: center;
+    background: var(--light-gray);
+    padding: 2rem;
+    border-radius: var(--radius-md);
 }
-@media (max-width: 640px) {
-  .paybill-band { padding: 2.5rem 1.5rem; flex-direction: column; text-align: center; gap: 1.75rem; }
-  .paybill-details { justify-content: center; }
+
+.paybill-message i { font-size: 2rem; color: var(--primary-red); margin-bottom: 1rem; }
+
+@media (max-width: 768px) {
+    .paybill-card { flex-direction: column; text-align: center; }
+    .paybill-message { flex: 0 0 auto; width: 100%; }
 }
 
 .section-contact {
@@ -1001,7 +1054,7 @@ h2.h2-light em { color: var(--accent-yellow); }
 }
 
 footer {
-  background: var(--primary-green);
+  background: #2e1065;
   color: var(--white);
 }
 
@@ -1032,7 +1085,7 @@ footer {
   display: none;
   width: 100%; height: 100%;
   align-items: center; justify-content: center;
-  background: rgba(255,255,255,.15);
+  background: #2e1065;
   font-weight: 700;
   font-size: .9rem;
   text-transform: uppercase;

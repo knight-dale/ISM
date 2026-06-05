@@ -206,6 +206,15 @@
     }, 5000);
   }
 
+  function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(() => {
+        const el = event.currentTarget.querySelector('i');
+        const originalClass = el.className;
+        el.className = 'fas fa-check';
+        setTimeout(() => { el.className = originalClass; }, 2000);
+    }).catch(err => console.error('Failed to copy: ', err));
+  }
+
   const paybillImg = document.querySelector('.paybill-img');
   if (paybillImg) {
     paybillImg.addEventListener('load', function () {
