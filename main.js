@@ -1,3 +1,14 @@
+ function copyToClipboard(text, btn) {
+    navigator.clipboard.writeText(text).then(() => {
+      btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.innerHTML = '<i class="fas fa-copy"></i> Copy';
+        btn.classList.remove('copied');
+      }, 2000);
+    }).catch(err => console.error('Failed to copy:', err));
+  }
+
 (function () {
   'use strict';
 
@@ -172,23 +183,51 @@
       if (!duration.value) errors.push('Please select a partnership duration.');
 
       if (errors.length) {
-        showFeedback(errors, 'error');
+        showFeedback(errors.join(' '), 'error');
         return;
       }
 
       formSubmit.disabled = true;
       formSubmit.textContent = 'Submitting…';
 
-      setTimeout(function () {
-        showFeedback(
-          '✓ Thank you, ' + name.value.split(' ') + '! We\'ll be in touch shortly.',
-          'success'
-        );
+      const payload = JSON.stringify({
+        access_key: '3eaa0222-9a88-4412-8d9d-73aa354212ec',
+        subject: 'New ISM Partnership Application',
+        from_name: 'ISM Kenya Website',
+        name: name.value.trim(),
+        email: email.value.trim(),
+        phone: document.getElementById('fphone')?.value.trim() || '',
+        country: document.getElementById('fcountry')?.value.trim() || '',
+        partner_type: type.value,
+        duration: duration.value,
+        message: document.getElementById('fmessage')?.value.trim() || ''
+      });
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: payload
+      })
+      .then(async (response) => {
+        if (response.status === 200) {
+          showFeedback('✓ Thank you, ' + name.value.split(' ')[0] + '! We\'ll be in touch shortly.', 'success');
+          document.getElementById('partnerForm')
+            .querySelectorAll('input, select, textarea')
+            .forEach(field => { field.value = ''; });
+        } else {
+          showFeedback('Submission failed. Please try again.', 'error');
+        }
+      })
+      .catch(() => {
+        showFeedback('Something went wrong. Please try again.', 'error');
+      })
+      .finally(() => {
         formSubmit.textContent = 'Submit Partnership Application →';
         formSubmit.disabled = false;
-        document.getElementById('partnerForm').querySelectorAll('input, select, textarea')
-          .forEach(function (field) { field.value = ''; });
-      }, 1200);
+      });
     });
   }
 
@@ -204,15 +243,6 @@
       formFeedback.textContent = '';
       formFeedback.className = 'form-feedback';
     }, 5000);
-  }
-
-  function copyToClipboard(text) {
-    navigator.clipboard.writeText(text).then(() => {
-        const el = event.currentTarget.querySelector('i');
-        const originalClass = el.className;
-        el.className = 'fas fa-check';
-        setTimeout(() => { el.className = originalClass; }, 2000);
-    }).catch(err => console.error('Failed to copy: ', err));
   }
 
   const paybillImg = document.querySelector('.paybill-img');

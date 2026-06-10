@@ -8,7 +8,24 @@
 </head>
 <body>
 
-  <!-- You can include your <nav> here -->
+  <nav id="navbar">
+    <a href="#" class="nav-logo">
+      <div class="nav-logo-mark">
+        <img src="resources/logo.png" alt="ISM Logo" class="nav-logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+        <span class="nav-logo-fallback">ism</span>
+      </div>
+      <div class="nav-brand">
+        ISM Kenya
+        <small>Institute of Strategic Management</small>
+      </div>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Back</a></li>
+    </ul>
+  </nav>
 
   <section class="events-section">
     <div class="section-header">
@@ -91,7 +108,52 @@
     </div>
   </section>
 
-  <!-- You can include your <footer> here -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <div class="footer-logo-mark">
+            <img src="resources/logo.png" alt="ISM Logo" class="footer-logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            <span class="footer-logo-fallback">ism</span>
+          </div>
+          <div class="footer-logo-name">Institute of Strategic Management</div>
+        </div>
+        <p class="footer-tagline">&ldquo;Passion for God, Compassion for the people, Action for the World.&rdquo;</p>
+      </div>
+      <div class="footer-links">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Counseling</a></li>
+          <li><a href="#services">Coaching</a></li>
+          <li><a href="#services">Mentoring</a></li>
+          <li><a href="#services">Training</a></li>
+          <li><a href="#services">Rehabilitation</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Organisation</h4>
+        <ul>
+          <li><a href="#about">About ISM</a></li>
+          <li><a href="#centres">Our Centres</a></li>
+          <li><a href="#partners">Partners</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:0738633000">0738 633 000</a></li>
+          <li><a href="tel:0748633000">0748 633 000</a></li>
+          <li><a href="mailto:ismkenya.africa@gmail.com">ismkenya.africa@gmail.com</a></li>
+          <li><a href="http://www.ismkenya.africa" target="_blank">ismkenya.africa</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 Institute of Strategic Management Kenya. All rights reserved.</p>
+      <a href="http://www.ismkenya.africa" class="footer-website" target="_blank">www.ismkenya.africa</a>
+    </div>
+  </footer>
 
 </body>
 </html>

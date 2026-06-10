@@ -8,6 +8,7 @@
   <link rel="icon" type="image/jpeg" href="resources/logo.png">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
@@ -40,27 +41,35 @@
     <div class="hero-accent hero-accent-2"></div>
 
     <div class="hero-content">
-        <div class="hero-tag">Empowering Communities</div> 
-        
-        <h1>Prolong Life,<br><em>Give Hope,</em><br>Restore Destinies.</h1>
-        
-        <p class="hero-subtitle">
-            We integrate academic excellence with compassionate service to develop all-rounded individuals and solve problems in a dynamic global society.
-        </p>
-        
-        <div class="hero-actions">
-            <a href="#services" class="btn-primary">Our Services &rarr;</a>
-            <a href="#contact" class="btn-secondary">Partner With Us</a>
-        </div>
-    </div>
+      <div class="hero-tag">
+        <span class="hero-tag-dot"></span>
+        Empowering Communities
+      </div>
 
-    <div class="hero-visual">
+      <!-- Mobile-only image sits between tag and heading -->
+      <div class="hero-visual-mobile">
         <img src="resources/intro.jpeg" alt="ISM Institute of Strategic Management" class="hero-image">
+      </div>
+
+      <h1>Prolong Life,<br><em>Give Hope,</em><br>Restore Destinies.</h1>
+
+      <p class="hero-subtitle">
+        We integrate academic excellence with compassionate service to develop all-rounded individuals and solve problems in a dynamic global society.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#services" class="btn-primary">Our Services &rarr;</a>
+        <a href="#contact" class="btn-secondary">Partner With Us</a>
+      </div>
     </div>
 
-    <div class="hero-stats">
-        </div>
-    </section>
+    <!-- Desktop-only image -->
+    <div class="hero-visual hero-visual-desktop">
+      <img src="resources/intro.jpeg" alt="ISM Institute of Strategic Management" class="hero-image">
+    </div>
+
+    <div class="hero-stats"></div>
+  </section>
 
   <div class="motto-band">
     <p class="motto-text">
@@ -203,47 +212,35 @@
   </section>
 
   <section id="gallery" class="events-section">
-      <div class="section-header fade-up">
-          <div class="section-tag">Our Project Highlights</div>
-          <h2>Youth Empowerment Session: <br><em>Shimaka Foundation & ISM</em></h2>
-      </div>
-      
-      <div class="project-grid">
-          <!-- 1. Certificate Handover -->
-          <div class="gallery-card"><div class="status-badge concluded">Concluded</div><img src="resources/pic16.jpeg"></div>
-          <div class="gallery-card"><div class="status-badge concluded">Concluded</div><img src="resources/pic17.jpeg"></div>
-          
-          <!-- 2. Hon. Ndakwa, MP Handover -->
-          <div class="gallery-card"><div class="status-badge concluded">Concluded</div><img src="resources/pic18.jpeg"></div>
-          <div class="gallery-card"><div class="status-badge concluded">Concluded</div><img src="resources/pic11.jpeg"></div>
-          
-          <!-- 3. ISM Trainers -->
-          <div class="gallery-card"><div class="status-badge concluded">Concluded</div><img src="resources/pic1.jpeg"></div>
-          <div class="gallery-card"><div class="status-badge concluded">Concluded</div><img src="resources/pic2.jpeg"></div>
-          
-          <!-- 4. Wakili Shimaka Leonard (Sponsor) -->
-          <div class="gallery-card"><div class="status-badge concluded">Concluded</div><img src="resources/pic3.jpeg"></div>
-          <div class="gallery-card"><div class="status-badge concluded">Concluded</div><img src="resources/pic4.jpeg"></div>
-          
-          <!-- 5. Vetting & Registration -->
-          <div class="gallery-card"><div class="status-badge concluded">Concluded</div><img src="resources/pic5.jpeg"></div>
-          <div class="gallery-card"><div class="status-badge concluded">Concluded</div><img src="resources/pic6.jpeg"></div>
-          
-          <!-- 6. Dr. Mambili Julius (Key Trainer) -->
-          <div class="gallery-card"><div class="status-badge concluded">Concluded</div><img src="resources/pic12.jpeg"></div>
-          <div class="gallery-card"><div class="status-badge concluded">Concluded</div><img src="resources/pic13.jpeg"></div>
-          
-          <!-- 7. National Admin Coordination -->
-          <div class="gallery-card"><div class="status-badge concluded">Concluded</div><img src="resources/pic14.jpeg"></div>
-          <div class="gallery-card"><div class="status-badge concluded">Concluded</div><img src="resources/pic15.jpeg"></div>
-      </div>
-      
-      <div style="text-align: center; margin-top: 3rem;">
-          <a href="gallery.html" class="btn-primary">View Full Gallery &rarr;</a>
-      </div>
+    <div class="section-header fade-up">
+        <div class="section-tag">Our Project Highlights</div>
+        <h2>Youth Empowerment Session: <br><em>Shimaka Foundation & ISM</em></h2>
+    </div>
+    
+    <div class="project-grid">
+        <div class="gallery-card"><div class="status-badge featured">Featured</div><img src="resources/pic16.jpeg"></div>
+        <div class="gallery-card"><div class="status-badge featured">Featured</div><img src="resources/pic17.jpeg"></div>
+        <div class="gallery-card"><div class="status-badge featured">Featured</div><img src="resources/pic18.jpeg"></div>
+        <div class="gallery-card"><div class="status-badge featured">Featured</div><img src="resources/pic11.jpeg"></div>
+        <div class="gallery-card"><div class="status-badge featured">Featured</div><img src="resources/pic1.jpeg"></div>
+        <div class="gallery-card"><div class="status-badge featured">Featured</div><img src="resources/pic2.jpeg"></div>
+        <div class="gallery-card"><div class="status-badge featured">Featured</div><img src="resources/pic3.jpeg"></div>
+        <div class="gallery-card"><div class="status-badge featured">Featured</div><img src="resources/pic4.jpeg"></div>
+        <div class="gallery-card"><div class="status-badge featured">Featured</div><img src="resources/pic5.jpeg"></div>
+        <div class="gallery-card"><div class="status-badge featured">Featured</div><img src="resources/pic6.jpeg"></div>
+        <div class="gallery-card"><div class="status-badge featured">Featured</div><img src="resources/pic12.jpeg"></div>
+        <div class="gallery-card"><div class="status-badge featured">Featured</div><img src="resources/pic13.jpeg"></div>
+        <div class="gallery-card"><div class="status-badge featured">Featured</div><img src="resources/pic14.jpeg"></div>
+        <div class="gallery-card"><div class="status-badge featured">Featured</div><img src="resources/pic15.jpeg"></div>
+    </div>
+    
+    <div style="text-align: center; margin-top: 3rem;">
+        <a href="gallery.html" class="btn-primary">View Our Full Project Gallery &rarr;</a>
+    </div>
   </section>
 
   <section id="centres" class="section-centres">
+    <h2>Four Centres of Community Impact</em></h2> 
     <div class="centres-grid">
     
         <div class="centre-card training">
@@ -274,43 +271,6 @@
   </section>
 
   <div class="section-divider"></div>
-
-  <section id="partners" class="section-partners">
-    <div class="partners-header">
-      <div>
-        <div class="section-tag">Partnership</div>
-        <h2>Join 10,000<br><em>Change Agents</em></h2>
-      </div>
-      <p class="partners-lead">Partners are the backbone of our mission. Whether through expertise, resources, or commitment — there is a place for you in this movement.</p>
-    </div>
-    <div class="partners-grid">
-      <div class="partner-card">
-        <span class="partner-tier tier-technical">&#x2699; Technical Partner</span>
-        <div class="partner-title">Skills &amp; Services</div>
-        <p class="partner-desc">Individuals, organisations, and institutions that contribute their expertise and skills to support our programmes.</p>
-      </div>
-      <div class="partner-card">
-        <span class="partner-tier tier-diamond">&#x1F48E; Diamond Partner</span>
-        <div class="partner-title">Project Champion</div>
-        <p class="partner-desc">Partners who identify a key project and fully fund it from inception to completion.</p>
-      </div>
-      <div class="partner-card">
-        <span class="partner-tier tier-gold">&#x2605; Gold Partner</span>
-        <div class="partner-title">Annual Supporter</div>
-        <p class="partner-desc">Partners who allocate a dedicated annual contribution to support ISM's ongoing work.</p>
-      </div>
-      <div class="partner-card">
-        <span class="partner-tier tier-silver">&#x25C8; Silver Partner</span>
-        <div class="partner-title">Monthly Donor</div>
-        <p class="partner-desc">Individuals and organisations giving monthly donations — money, books, clothing — to support a specific initiative.</p>
-      </div>
-      <div class="partner-card">
-        <span class="partner-tier tier-bronze">&#x25C7; Bronze Partner</span>
-        <div class="partner-title">Seasonal Giver</div>
-        <p class="partner-desc">Partners who give in any form at a time or season of their choice. Every contribution matters.</p>
-      </div>
-    </div>
-  </section>
 
   <section class="section-benefits">
     <div class="section-tag">Why Partner With Us</div>
@@ -346,33 +306,90 @@
 
   <section class="paybill-container">
     <div class="paybill-card">
-        <div class="paybill-content">
+      <div class="paybill-content">
         <h3>Pay to ISM via M-Pesa</h3>
-        <p>Lipa Na M-Pesa &middot; Simple &middot; Transparent &middot; Honest</p>
-        
-        <div class="paybill-details">
-            <div class="copy-item" onclick="copyToClipboard('23189')">
-            <div class="paybill-label">Paybill Number</div>
-            <div class="paybill-value">
-                23189 <i class="fas fa-copy"></i>
-            </div>
-            </div>
-            
-            <div class="paybill-group-divider"></div>
-            
-            <div class="copy-item" onclick="copyToClipboard('ISM#')">
-            <div class="paybill-label">Account Name</div>
-            <div class="paybill-value">
-                ISM# <i class="fas fa-copy"></i>
-            </div>
-            </div>
-        </div>
-        </div>
+        <p class="paybill-subtitle">Lipa Na M-Pesa &middot; Simple &middot; Transparent &middot; Honest</p>
 
-        <div class="paybill-message">
-        <i class="fas fa-heart"></i>
-        <p>Your support means the world to us. Every contribution helps us restore destinies and transform lives across our communities.</p>
+        <div class="paybill-details">
+          <div class="copy-row">
+            <div class="copy-row-left">
+              <span class="copy-step">1</span>
+              <span class="copy-label">Paybill Number: <strong>23189</strong></span>
+            </div>
+            <button class="copy-btn" onclick="copyToClipboard('23189', this)">
+              <i class="fas fa-copy"></i> Copy
+            </button>
+          </div>
+
+          <div class="copy-row">
+            <div class="copy-row-left">
+              <span class="copy-step">2</span>
+              <span class="copy-label">Account Name: <strong>ISM#</strong></span>
+            </div>
+            <button class="copy-btn" onclick="copyToClipboard('ISM#', this)">
+              <i class="fas fa-copy"></i> Copy
+            </button>
+          </div>
         </div>
+      </div>
+
+      <div class="paybill-message">
+        <i class="fas fa-mobile-alt"></i>
+        <p>Pay for our services or support our mission; every M-Pesa transaction helps us restore destinies and transform lives across our communities.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="tv-project" class="section-tv">
+    <div class="tv-container">
+      <div class="tv-content">
+        <div class="section-tag">New Initiative</div>
+        <h2>ISM Stand-alone TV</h2>
+        <p>Educating the public, fostering dialogue, and awakening the giant in every citizen. Join us as we unpack critical matters across politics, economy, society, and faith.</p>
+        <div class="tv-actions">
+          <a href="#subscribe" class="btn-primary">Watch Latest Episodes &rarr;</a>
+        </div>
+      </div>
+      <div class="tv-visual">
+        <img src="resources/tv-placeholder.png" alt="Stand-alone TV">
+      </div>
+    </div>
+  </section>
+
+  <section id="partners" class="section-partners">
+    <div class="partners-header">
+      <div>
+        <div class="section-tag">Partnership</div>
+        <h2>Join 10,000<br><em>Change Agents</em></h2>
+      </div>
+      <p class="partners-lead">Partners are the backbone of our mission. Whether through expertise, resources, or commitment — there is a place for you in this movement.</p>
+    </div>
+    <div class="partners-grid">
+      <div class="partner-card">
+        <span class="partner-tier tier-technical">&#x2699; Technical Partner</span>
+        <div class="partner-title">Skills &amp; Services</div>
+        <p class="partner-desc">Individuals, organisations, and institutions that contribute their expertise and skills to support our programmes.</p>
+      </div>
+      <div class="partner-card">
+        <span class="partner-tier tier-diamond">&#x1F48E; Diamond Partner</span>
+        <div class="partner-title">Project Champion</div>
+        <p class="partner-desc">Partners who identify a key project and fully fund it from inception to completion.</p>
+      </div>
+      <div class="partner-card">
+        <span class="partner-tier tier-gold">&#x2605; Gold Partner</span>
+        <div class="partner-title">Annual Supporter</div>
+        <p class="partner-desc">Partners who allocate a dedicated annual contribution to support ISM's ongoing work.</p>
+      </div>
+      <div class="partner-card">
+        <span class="partner-tier tier-silver">&#x25C8; Silver Partner</span>
+        <div class="partner-title">Monthly Donor</div>
+        <p class="partner-desc">Individuals and organisations giving monthly donations — money, books, clothing — to support a specific initiative.</p>
+      </div>
+      <div class="partner-card">
+        <span class="partner-tier tier-bronze">&#x25C7; Bronze Partner</span>
+        <div class="partner-title">Seasonal Giver</div>
+        <p class="partner-desc">Partners who give in any form at a time or season of their choice. Every contribution matters.</p>
+      </div>
     </div>
   </section>
 
@@ -466,17 +483,61 @@
     </div>
   </section>
 
+  <section id="impact" class="section-services">
+    <div class="services-header">
+      <div class="section-tag">Strategic Impact</div>
+      <h2>Awakening the <em>Giant</em></h2>
+      <p class="services-lead">Our recent collaboration with Shimaka Foundation in the Malava Youth Empowerment Conference demonstrates our commitment to nurturing responsible leadership and economic advancement.</p>
+    </div>
+    
+    <div class="services-grid">
+      <div class="service-card sc-green">
+        <div class="service-title">Governance & Civic Responsibility</div>
+        <p class="service-desc">Empowering first-time voters and youth leaders to actively participate in decision-making processes.</p>
+      </div>
+      <div class="service-card sc-purple">
+        <div class="service-title">Mental Health & Well-being</div>
+        <p class="service-desc">Providing safe platforms to discuss emotional resilience and stress management for the youth.</p>
+      </div>
+      <div class="service-card sc-amber">
+        <div class="service-title">Entrepreneurship Pathways</div>
+        <p class="service-desc">Practical training on digital economy, agribusiness, and financial management for self-reliance.</p>
+      </div>
+    </div>
+    
+    <div class="strategic-link-box">
+    <div class="link-box-content">
+        <h3>Extend Your Impact</h3>
+        <p>
+          While ISM Kenya drives community-level outreach and psycho-social support, 
+          our co-organization, the <strong>Strategic Management Firm</strong>, 
+          provides the high-level strategic research, policy consultancy, and 
+          professional certification frameworks that make our field work sustainable.
+        </p>
+        <a href="https://strategicmanagement.co.ke" target="_blank" class="btn-primary">Explore Strategic Research & Consultancy &rarr;</a>
+      </div>
+    </div>
+  </section>
+
   <footer>
     <div class="footer-top">
       <div class="footer-brand">
         <div class="footer-logo">
           <div class="footer-logo-mark">
-            <img src="resources/logo.jpg" alt="ISM Logo" class="footer-logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            <img src="resources/logo.png" alt="ISM Logo" class="footer-logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
             <span class="footer-logo-fallback">ism</span>
           </div>
           <div class="footer-logo-name">Institute of Strategic Management</div>
         </div>
         <p class="footer-tagline">&ldquo;Passion for God, Compassion for the people, Action for the World.&rdquo;</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/profile.php?id=100077710084583" target="_blank" aria-label="Facebook">
+            <i class="fab fa-facebook"></i>
+          </a>
+          <a href="https://youtube.com/standalonetv" target="_blank" aria-label="YouTube">
+            <i class="fab fa-youtube"></i>
+          </a>
+        </div>
       </div>
       <div class="footer-links">
         <h4>Services</h4>
@@ -492,9 +553,9 @@
         <h4>Organisation</h4>
         <ul>
           <li><a href="#about">About ISM</a></li>
+          <li><a href="https://strategicmanagement.co.ke" target="_blank">Strategic Management Co.</a></li>
           <li><a href="#centres">Our Centres</a></li>
           <li><a href="#partners">Partners</a></li>
-          <li><a href="#contact">Contact Us</a></li>
         </ul>
       </div>
       <div class="footer-links">
