@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>ISM Kenya — Counseling, Coaching, Mentoring & Rehabilitation | Institute of Strategic Management</title>
+  <title>ISM Kenya: Counseling, Coaching, Mentoring & Rehabilitation | Institute of Strategic Management</title>
   <meta name="description" content="ISM Kenya is a psycho-social support service provider offering professional counseling, coaching, mentoring, rehabilitation and training across Kenya and East Africa.">
   <meta name="keywords" content="ISM Kenya, Institute of Strategic Management, counseling Kenya, psycho-social support, coaching Kenya, mentoring, rehabilitation Kenya, youth empowerment, community transformation">
   <meta name="author" content="Institute of Strategic Management Kenya">
@@ -475,12 +475,75 @@
     </div>
   </section>
 
+  <section id="books" class="section-books">
+    <div class="books-header">
+      <div class="section-tag">Publications by Our Founder</div>
+      <h2>Books by<br><em>Edward Omung'ala</em></h2>
+      <p>Resources rooted in decades of mentorship. Each book is designed to complement our training programs and support your personal development journey.</p>
+    </div>
+
+    <div class="books-grid">
+      <div class="book-card">
+        <div class="book-cover-wrap">
+          <img src="resources/book-unveiling-the-mask.jpeg" alt="Unveiling the Mask" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <span class="book-cover-badge">Core Resource</span>
+        </div>
+        <div class="book-body">
+          <div class="book-genre">Marriage & Relationships</div>
+          <div class="book-title">Unveiling the Mask</div>
+          <div class="book-subtitle">What lies beneath the face you married?</div>
+          <p class="book-desc">
+            A foundational text for our counseling services. This book explores the realities of modern marriage, addressing the temptations and critical communication tools needed to build lasting, purposeful unions.
+          </p>
+          <div class="book-meta">
+            <div class="book-price">KES 1,000 <small>per copy.<br>
+              Free delivery.</small></div>
+          </div>
+          <button class="btn-order" onclick="openBookModal('Unveiling the Mask', 'Marriage & Relationships')">
+            Order Now &rarr;
+          </button>
+        </div>
+      </div>
+
+      <div class="book-card">
+        <div class="book-cover-wrap">
+          <img src="resources/book-7th-factor.jpeg" alt="The 7th Factor" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <span class="book-cover-badge">Entrepreneurial Training</span>
+        </div>
+        <div class="book-body">
+          <div class="book-genre">Women Entrepreneurship</div>
+          <div class="book-title">The 7<sup>th</sup> Factor</div>
+          <div class="book-subtitle">Challenges and Solutions in Development</div>
+          <p class="book-desc">
+            Used in our Centre for Transformational Training, this book provides the strategic framework for women to navigate business environments, blending masculine-led strategy with feminine-led innovation.
+          </p>
+          <div class="book-meta">
+            <div class="book-price">KES 1,000 <small>per copy.<br> Free delivery.</small></div>
+          </div>
+          <button class="btn-order" onclick="openBookModal('The 7th Factor', 'Women Entrepreneurship')">
+            Order Now &rarr;
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="books-author-strip">
+      <div class="author-content">
+        <img src="resources/founder-portrait.jpeg" alt="Edward Omung'ala" class="author-img">
+        <p>
+          <strong>Author's Note</strong>
+          Edward Omung'ala Alukhome, Founder of the Institute of Strategic Management, writes to bridge the gap between academic theory and community reality. His books serve as the primary curriculum for our specialized mentoring and transformation programs across Kakamega and the wider region.
+        </p>
+      </div>
+    </div>
+  </section>
+
   <section id="contact" class="section-contact">
     <div class="contact-grid">
       <div class="contact-info">
         <div class="section-tag">Get In Touch</div>
         <h2>Let's Build<br><em>Together</em></h2>
-        <p class="contact-lead">Whether you're seeking our services, interested in partnering, or want to volunteer — we'd love to hear from you.</p>
+        <p class="contact-lead">Whether you're seeking our services, interested in partnering, or want to volunteer, we'd love to hear from you.</p>
         <div class="contact-items">
           <div class="contact-item">
             <div class="contact-icon">&#x1F4DE;</div>
@@ -657,5 +720,72 @@
   </footer>
 
   <script src="main.js"></script>
+
+  <div id="bookOrderModal" class="books-modal-overlay" onclick="if(event.target===this)closeBookModal()">
+    <div class="books-modal">
+      <button class="books-modal-close" onclick="closeBookModal()" aria-label="Close">&times;</button>
+      <h3 id="modalBookName" class="books-modal-title"></h3>
+
+      <div class="books-modal-row">
+        <label>Full Name *</label>
+        <input id="bk-name" type="text" placeholder="Your full name">
+      </div>
+      <div class="books-modal-row">
+        <label>Phone *</label>
+        <input id="bk-phone" type="tel" placeholder="07XX XXX XXX">
+      </div>
+      <div class="books-modal-row">
+        <label>Email *</label>
+        <input id="bk-email" type="email" placeholder="you@email.com">
+      </div>
+      <div class="books-modal-row">
+        <label>Quantity</label>
+        <div class="qty-row">
+          <button type="button" onclick="document.getElementById('bk-qty').stepDown(); updateModalTotal()">−</button>
+          <input id="bk-qty" type="number" value="1" min="1" max="20" onchange="updateModalTotal()">
+          <button type="button" onclick="document.getElementById('bk-qty').stepUp(); updateModalTotal()">+</button>
+        </div>
+      </div>
+      <div class="books-modal-row">
+        <label>Delivery Location *</label>
+        <div class="county-autocomplete">
+          <input 
+            id="bk-delivery" 
+            type="text" 
+            placeholder="Type to search address…" 
+            autocomplete="off"
+            oninput="filterCounties(this.value)"
+            onfocus="filterCounties(this.value)"
+          >
+          <ul id="countyDropdown" class="county-dropdown"></ul>
+        </div>
+      </div>
+      <div class="books-modal-row">
+        <label>Notes</label>
+        <textarea id="bk-notes" rows="3" placeholder="Any special instructions…"></textarea>
+      </div>
+
+      <div class="books-modal-summary">
+        <span>Qty: <strong id="modalQtyDisplay">1</strong></span>
+        <span>Total: <strong id="modalTotalDisplay">KES 1,000</strong></span>
+      </div>
+
+      <div class="books-modal-mpesa">
+        <p class="mpesa-title"><i class="fas fa-mobile-alt"></i> Pay via M-Pesa Paybill</p>
+        <div class="mpesa-row">
+          <span>Paybill: <strong>23189</strong></span>
+          <button class="copy-btn" onclick="copyToClipboard('23189', this)"><i class="fas fa-copy"></i> Copy</button>
+        </div>
+        <div class="mpesa-row">
+          <span>Account: <strong>ISM#</strong></span>
+          <button class="copy-btn" onclick="copyToClipboard('ISM#', this)"><i class="fas fa-copy"></i> Copy</button>
+        </div>
+        <p class="mpesa-note">Please complete M-Pesa payment before or after submitting your order. We'll confirm delivery once payment is received.</p>
+      </div>
+
+      <div id="bookModalFeedback" class="books-modal-feedback"></div>
+      <button id="bookSubmitBtn" class="btn-order" onclick="submitBookOrder()">Submit Order →</button>
+    </div>
+  </div>
 </body>
 </html>

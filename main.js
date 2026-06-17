@@ -1,14 +1,71 @@
- function copyToClipboard(text, btn) {
-    navigator.clipboard.writeText(text).then(() => {
-      btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
-      btn.classList.add('copied');
-      setTimeout(() => {
-        btn.innerHTML = '<i class="fas fa-copy"></i> Copy';
-        btn.classList.remove('copied');
-      }, 2000);
-    }).catch(err => console.error('Failed to copy:', err));
+function copyToClipboard(text, btn) {
+  navigator.clipboard.writeText(text).then(() => {
+    btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.innerHTML = '<i class="fas fa-copy"></i> Copy';
+      btn.classList.remove('copied');
+    }, 2000);
+  }).catch(err => console.error('Failed to copy:', err));
+}
+
+/* ── County autocomplete (global so HTML onclick can reach it) ── */
+const KENYA_COUNTIES = [
+  "Baringo","Bomet","Bungoma","Busia","Elgeyo-Marakwet","Embu","Garissa",
+  "Homa Bay","Isiolo","Kajiado","Kakamega","Kericho","Kiambu","Kilifi",
+  "Kirinyaga","Kisii","Kisumu","Kitui","Kwale","Laikipia","Lamu","Machakos",
+  "Makueni","Mandera","Marsabit","Meru","Migori","Mombasa","Murang'a",
+  "Nairobi","Nakuru","Nandi","Narok","Nyamira","Nyandarua","Nyeri",
+  "Samburu","Siaya","Taita-Taveta","Tana River","Tharaka-Nithi","Trans Nzoia",
+  "Turkana","Uasin Gishu","Vihiga","Wajir","West Pokot"
+];
+
+let selectedCounty = '';
+
+function filterCounties(query) {
+  const dropdown = document.getElementById('countyDropdown');
+  if (!dropdown) return;
+  dropdown.innerHTML = '';
+  selectedCounty = '';
+
+  const q = query.trim().toLowerCase();
+  if (!q) {
+    dropdown.style.display = 'none';
+    return;
   }
 
+  const matches = KENYA_COUNTIES.filter(c => c.toLowerCase().includes(q));
+
+  if (!matches.length) {
+    dropdown.innerHTML = '<li class="county-no-result">No county found</li>';
+    dropdown.style.display = 'block';
+    return;
+  }
+
+  matches.forEach(county => {
+    const li = document.createElement('li');
+    const regex = new RegExp(`(${q})`, 'gi');
+    li.innerHTML = county.replace(regex, '<strong>$1</strong>');
+    li.addEventListener('mousedown', function (e) {
+      e.preventDefault(); // prevent blur firing before click
+      document.getElementById('bk-delivery').value = county;
+      selectedCounty = county;
+      dropdown.style.display = 'none';
+    });
+    dropdown.appendChild(li);
+  });
+
+  dropdown.style.display = 'block';
+}
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.county-autocomplete')) {
+    const dropdown = document.getElementById('countyDropdown');
+    if (dropdown) dropdown.style.display = 'none';
+  }
+});
+
+/* ── Main IIFE ── */
 (function () {
   'use strict';
 
@@ -277,5 +334,105 @@
       item.style.paddingLeft = '1.25rem';
     });
   });
+
+  (function () {
+    let currentBook = '';
+
+    window.openBookModal = function (bookTitle, genre) {
+      currentBook = bookTitle;
+      document.getElementById('modalBookName').textContent = bookTitle + ' — ' + genre;
+      document.getElementById('bk-qty').value = '1';
+      document.getElementById('bk-delivery').value = '';
+      selectedCounty = '';
+      updateModalTotal();
+      const feedback = document.getElementById('bookModalFeedback');
+      feedback.className = 'books-modal-feedback';
+      feedback.textContent = '';
+      document.getElementById('bookSubmitBtn').disabled = false;
+      document.getElementById('bookSubmitBtn').textContent = 'Submit Order →';
+      document.getElementById('bookOrderModal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    };
+
+    window.closeBookModal = function () {
+      document.getElementById('bookOrderModal').classList.remove('open');
+      document.body.style.overflow = '';
+    };
+
+    window.updateModalTotal = function () {
+      const qty = parseInt(document.getElementById('bk-qty').value, 10) || 1;
+      const total = qty * 1000;
+      document.getElementById('modalQtyDisplay').textContent = qty;
+      document.getElementById('modalTotalDisplay').textContent = 'KES ' + total.toLocaleString();
+    };
+
+    window.submitBookOrder = function () {
+      const name = document.getElementById('bk-name').value.trim();
+      const phone = document.getElementById('bk-phone').value.trim();
+      const email = document.getElementById('bk-email').value.trim();
+      const qty = document.getElementById('bk-qty').value;
+      const delivery = document.getElementById('bk-delivery').value.trim();
+      const feedback = document.getElementById('bookModalFeedback');
+      const btn = document.getElementById('bookSubmitBtn');
+
+      if (!name || !phone || !email) {
+        feedback.textContent = 'Please fill in your name, phone, and email to continue.';
+        feedback.className = 'books-modal-feedback error';
+        return;
+      }
+
+      if (!KENYA_COUNTIES.includes(delivery)) {
+        feedback.textContent = 'Please select a valid delivery county from the list.';
+        feedback.className = 'books-modal-feedback error';
+        document.getElementById('bk-delivery').focus();
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 10000); 
+
+      const payload = JSON.stringify({
+        access_key: '3eaa0222-9a88-4412-8d9d-73aa354212ec',
+        subject: `Book Order: ${currentBook}`,
+        name,
+        email,
+        phone,
+        message: `Book: ${currentBook} | Copies: ${qty} | Delivery County: ${delivery} | Notes: ${document.getElementById('bk-notes').value.trim()}`
+      });
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: payload,
+        signal: controller.signal,
+      })
+      .then(r => r.json())
+      .then(data => {
+        clearTimeout(timeout);
+        if (data.success) {
+          feedback.scrollIntoView({ behavior: 'smooth' });
+          feedback.innerHTML = '✅ Order received! Please pay <strong>KES ' + (parseInt(qty) * 1000).toLocaleString() + '</strong> to Paybill <strong>23189</strong>, Account <strong>ISM#</strong>. We\'ll confirm delivery within 24 hours.';
+          feedback.className = 'books-modal-feedback success';
+          btn.textContent = 'Order Sent ✓';
+        } else {
+          throw new Error(data.message);
+        }
+      })
+      .catch(err => {
+        clearTimeout(timeout);
+        if (err.name === 'AbortError') {
+          feedback.innerHTML = '⚠️ Request timed out. Your order may still have been received — please call <strong>0738 633 000</strong> to confirm.';
+        } else {
+          feedback.innerHTML = '❌ Something went wrong. Please call <strong>0738 633 000</strong>.';
+        }
+        feedback.className = 'books-modal-feedback error';
+        btn.disabled = false;
+        btn.textContent = 'Submit Order →';
+      });
+    };
+  })();
 
 })();
