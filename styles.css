@@ -1437,6 +1437,46 @@ h2.h2-light em { color: var(--accent-yellow); }
   line-height: 1.5;
 }
 
+@media (max-width: 768px) {
+
+  .section-books {
+    padding: 4rem 1.25rem;
+  }
+  .books-grid {
+    grid-template-columns: 1fr;  
+    gap: 2rem;
+    max-width: 100%;
+    margin: 0;                   
+  }
+  .book-card {
+    width: 100%;
+  }
+
+  .books-author-strip {
+    margin: 3rem 0 1rem;           
+    padding: 2rem 1.25rem;
+  }
+  .author-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
+  .author-img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 0;
+  }
+  .books-author-strip p {
+    font-size: 0.92rem;
+    line-height: 1.7;
+    max-width: 100%;
+  }
+  .books-author-strip strong {
+    font-size: 1.35rem;
+  }
+}
+
 .section-tv {
     padding: 6rem 4rem;
     background: var(--white);
