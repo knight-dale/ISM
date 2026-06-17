@@ -1215,11 +1215,12 @@ h2.h2-light em { color: var(--accent-yellow); }
 
 .book-card { background: var(--white); border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: all 0.4s ease; }
 .book-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.12); }
-.book-cover-wrap { position: relative; height: 300px; }
+.book-cover-wrap { position: relative; height: 350px; background: #f4f4f4; }
 .book-cover-wrap img {
     width: 100%;
     height: 100%;
     object-fit: contain; 
+    padding: 10px;
     background-color: #f9f9f9; 
 }
 .book-cover-badge { position: absolute; top: 1rem; left: 1rem; background: var(--primary-green); color: white; padding: 0.3rem 0.8rem; border-radius: 50px; font-size: 0.8rem; }
@@ -1239,39 +1240,42 @@ h2.h2-light em { color: var(--accent-yellow); }
 .books-modal-feedback.error { display: block; background: #ffebee; color: #c62828; }
 .books-modal-feedback.success { display: block; background: #e8f5e9; color: #2e7d32; }
 .author-content { display: flex; align-items: center; gap: 2rem; text-align: left; }
-.author-img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent-yellow); }
+
+
+.author-img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 1rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent-yellow);
+}
 
 @media (max-width: 768px) {
   .author-content { flex-direction: column; text-align: center; }
 }
 
 .books-author-strip {
-  margin-top: 5rem !important;
-  padding: 4rem 2rem;
-  background-color: var(--primary-purple); 
-  color: #ffffff; 
+  margin: 5rem 1rem 2rem 1rem; 
+  padding: 2.5rem 1.5rem;     
+  background: var(--primary-purple);
+  color: var(--white);
   border-radius: var(--radius-lg);
   text-align: center;
-  max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 90%;
 }
 
 .books-author-strip p {
-  line-height: 1.8;
-  font-size: 1.1rem;
-  max-width: 700px;
+  line-height: 1.6;
+  font-size: 1rem;
   margin: 0 auto;
-  color: #ffffff;
 }
 
 .books-author-strip strong {
   display: block;
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   margin-bottom: 1rem;
-  color: var(--accent-yellow); 
+  color: var(--accent-yellow);
 }
 
 .books-modal-overlay {
